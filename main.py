@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """The Router Confesses - make.fun entry by @brawijaya.
 
-Writes one line from a Wi-Fi router to /output/entry.txt
+Writes one line from a home Wi-Fi router to /output/entry.txt
 (or ./entry.txt when /output does not exist, for example on a local run).
 """
 
@@ -13,6 +13,7 @@ MAX_CHARS = 200
 
 
 def validate(text):
+    """A single line within the character limit, nothing else."""
     assert text and text.strip(), "entry must not be blank"
     assert "\n" not in text and "\r" not in text, "entry must be a single line"
     assert len(text) <= MAX_CHARS, "entry is %d chars, max is %d" % (len(text), MAX_CHARS)
